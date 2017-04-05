@@ -9,7 +9,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
@@ -424,8 +426,17 @@ public class FragmentViewCycles extends ListFragment{
 				((ImageView)row.findViewById(R.id.icon_purchaseType)).setImageResource(R.drawable.ic_launcher_web);
 			} else {
 				int id = CropDataHelper.getCropsDrawable(myContext, txt);
+				Log.i("Potential Key "+txt," Fragment View Cycles");
+				CropDataHelper c = new CropDataHelper();
+				id = c.getResourceId(txt);
+//				Log.i("image id:"+id,"found id Fragment View Cycles");
+//				Log.i("raw draw:"+R.drawable.banana,"drawable Fragment View Cycles");
+//				id = R.drawable.banana;
+//				Drawable d = ContextCompat.getDrawable(myContext,id);
+				ImageView iv = ((ImageView) row.findViewById(R.id.icon_purchaseType));
 				if (id != -1) {
-					((ImageView) row.findViewById(R.id.icon_purchaseType)).setImageResource(id);
+					iv.setImageResource(id);
+//					((ImageView) row.findViewById(R.id.icon_purchaseType)).setImageDrawable(d);
 				}
 			}
 
