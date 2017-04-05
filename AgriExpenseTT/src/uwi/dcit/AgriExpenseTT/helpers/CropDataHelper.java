@@ -184,6 +184,8 @@ public class CropDataHelper {
 
 	}
 	public Integer getResourceId(String key){
-		return resources.get(key);
+		if(resources.containsKey(key))
+			return resources.get(key);
+		return R.drawable.crop_under_rain_solid;
 	}
 }
