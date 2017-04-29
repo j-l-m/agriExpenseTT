@@ -59,7 +59,7 @@ public class Main extends BaseActivity{
     }
 
     /**
-     * Setup the Screen if running in potrait mode
+     * Setup the Screen if running in portrait mode
      */
     private void setupPort() {
         Fragment frag = new FragmentSlidingMain();

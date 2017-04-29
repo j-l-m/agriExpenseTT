@@ -182,5 +182,13 @@ As seen here when you select manage data in fig 1.0, you are presented with this
     <string name="list_search">Search</string>
     <string name="create_new_crop_cyle">Creating new crop cycle</string>
     <string name="add_purchase">Add Purchase</string>
+    <string name="add_labour">Add Labour</string>
+    <string name="add_purchase_instruct">Sorry you haven\'t purchased any of this to use as yet</string>
+    <string name="add_cycle_instruct">Tap here to create a new cycle</string>
+    <string name="add_labour_instruct">Tap here to add a new labourer</string>
+    <string name="add_purchase_cat_instruct">Sorry you haven\'t purchased any %s, so there\'s nothing to use</string>
+    <string name="select_crop_label">Select the crop to plant for this cycle</string>
+    <string name="select_land_label">Select the type of land you are using</string>
+    <string name="select_resource_cat_add">Choose category of resource to be added</string>
 
 </resources>

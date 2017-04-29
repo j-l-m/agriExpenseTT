@@ -9,9 +9,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
@@ -91,6 +89,7 @@ public class FragmentViewCycles extends ListFragment{
 		if (cycleList == null || cycleList.size() > 0)cycleList = new ArrayList<>();
 		if (progressDialog != null)progressDialog.dismiss();
 		progressDialog = ProgressDialog.show(getActivity(), "Cycles", "Retrieving Cycles", true);
+		progressDialog.setCancelable(true);
 		progressDialog.show();
 		Log.d(TAG, "Created a dialog");
 
@@ -415,38 +414,31 @@ public class FragmentViewCycles extends ListFragment{
             //get the elements of that view and set them accordingly
             LocalCycle currCycle = fragmentViewCycles.cycleList.get(position);
 
-            String txt = (currCycle.getCropName() != null ) ? currCycle.getCropName() : DbQuery.findResourceName(db, dbh, currCycle.getCropId());
+            String cropName = (currCycle.getCropName() != null ) ? currCycle.getCropName() : DbQuery.findResourceName(db, dbh, currCycle.getCropId());
 
-			String cycleName = (currCycle.getCycleName() != null) ? currCycle.getCycleName().toUpperCase() : txt;
+			String cycleName = (currCycle.getCycleName() != null) ? currCycle.getCycleName().toUpperCase() : cropName;
 			String closed = currCycle.getClosed();
-            ((TextView)row.findViewById(R.id.tv_cycleList_crop)).setText(String.format("Crop: %s", txt));
+            ((TextView)row.findViewById(R.id.tv_cycleList_crop)).setText(String.format("Crop: %s", cropName));
             ((TextView)row.findViewById(R.id.tv_cycleList_name)).setText(String.format("Name: %s", cycleName));
 
 			if(closed.equals("closed")){
-				((ImageView)row.findViewById(R.id.icon_purchaseType)).setImageResource(R.drawable.ic_launcher_web);
+				((ImageView)row.findViewById(R.id.icon_crop)).setImageResource(R.drawable.ic_launcher_web);
 			} else {
-				int id = CropDataHelper.getCropsDrawable(myContext, txt);
-				Log.i("Potential Key "+txt," Fragment View Cycles");
 				CropDataHelper c = new CropDataHelper();
-				id = c.getResourceId(txt);
-//				Log.i("image id:"+id,"found id Fragment View Cycles");
-//				Log.i("raw draw:"+R.drawable.banana,"drawable Fragment View Cycles");
-//				id = R.drawable.banana;
-//				Drawable d = ContextCompat.getDrawable(myContext,id);
-				ImageView iv = ((ImageView) row.findViewById(R.id.icon_purchaseType));
+				int id = c.getResourceId(cropName);
+				ImageView iv = ((ImageView) row.findViewById(R.id.icon_crop));
 				if (id != -1) {
 					iv.setImageResource(id);
-//					((ImageView) row.findViewById(R.id.icon_purchaseType)).setImageDrawable(d);
 				}
 			}
 
             // TODO Use this template to insert an appropriate image for the crop cycle based on crop type
 
             double qty = currCycle.getLandQty();
-            txt = currCycle.getLandType();
-            txt = String.format("%s %ss", qty, txt);
+            String landType = currCycle.getLandType();
+			landType = String.format("%s %ss", qty, landType);
 
-            ((TextView)row.findViewById(R.id.tv_cycleList_Land)).setText(String.format("Land: %s", txt));
+            ((TextView)row.findViewById(R.id.tv_cycleList_Land)).setText(String.format("Land: %s", landType));
             ((TextView)row.findViewById(R.id.tv_cycleList_date)).setText(String.format("Planted: %s", DateFormatHelper.getDateStr(currCycle.getTime())));
             ((TextView)row.findViewById(R.id.tv_cycleList_harvest)).setText(String.format("Harvested: %s %s", currCycle.getHarvestAmt(), currCycle.getHarvestType()));
 

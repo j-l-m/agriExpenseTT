@@ -22,19 +22,19 @@
             android:textColor="@color/secondary_text"
             android:textSize="@dimen/list_reuse_description"/>
 
-        <EditText
-            android:id="@+id/et_listReuse_search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/list_search"
-            android:inputType="textFilter"
-            android:maxLines="1">
-            <requestFocus />
-        </EditText>
+        <!--<EditText-->
+            <!--android:id="@+id/et_listReuse_search"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:layout_marginRight="5dp"-->
+            <!--android:layout_marginTop="0dp"-->
+            <!--android:ems="10"-->
+            <!--android:hint="@string/list_search"-->
+            <!--android:inputType="textFilter"-->
+            <!--android:maxLines="1">-->
+            <!--<requestFocus />-->
+        <!--</EditText>-->
 
     </LinearLayout>
 

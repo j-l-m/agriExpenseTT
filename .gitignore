@@ -33,3 +33,4 @@ gradlew.bat
 *.log
 
 google-services.json
+*.tmp

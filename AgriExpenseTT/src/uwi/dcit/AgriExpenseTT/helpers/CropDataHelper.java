@@ -76,9 +76,6 @@ public class CropDataHelper {
 			Resources resources = context.getResources();
 			final int id = resources.getIdentifier(name,"drawable",context.getPackageName());
 			return id;
-			/*Class res = R.drawable.class;
-			Field field = res.getField(name);
-			return field.getInt(null);*/
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -93,21 +90,21 @@ public class CropDataHelper {
 		resources.put("BEET",R.drawable.beet);
 //		resources.put("BHAGI",R.drawable);
 		resources.put("BORA (BODI) BEAN",R.drawable.bodi_bean);
-//		resources.put("BREADFRUIT",R.drawable);
-//		resources.put("BREADNUT (CHATAIGNE)",R.drawable);
-//		resources.put("BROCCOLI",R.drawable);
+		resources.put("BREADFRUIT",R.drawable.breadfruit);
+		resources.put("BREADNUT (CHATAIGNE)",R.drawable.chataigne);
+		resources.put("BROCCOLI",R.drawable.broccoli);
 		resources.put("CABBAGE",R.drawable.cabbage);
 		resources.put("CARAILLI",R.drawable.caraillie);
-//		resources.put("CARAMBOLA",R.drawable);
+		resources.put("CARAMBOLA",R.drawable.carambola);
 		resources.put("CARROTS",R.drawable.carrot);
 		resources.put("CASSAVA",R.drawable.cassava);
 		resources.put("CAULIFLOWER",R.drawable.cauliflower);
 		resources.put("CELERY",R.drawable.celery);
-//		resources.put("CHERRY",R.drawable);
+		resources.put("CHERRY",R.drawable.bajan_cherry);
 		resources.put("CHIVE",R.drawable.chive);
 //		resources.put("CHOI SUM (CHINESE CABBAGE)",R.drawable);
 		resources.put("CHRISTOPHENE",R.drawable.christophene);
-//		resources.put("COCOA",R.drawable);
+		resources.put("COCOA",R.drawable.cocoa);
 		resources.put("COCONUT",R.drawable.coconut);
 		resources.put("CORN",R.drawable.corn);
 //		resources.put("COWPEA (GUB GUB)",R.drawable);
@@ -116,16 +113,16 @@ public class CropDataHelper {
 //		resources.put("CURRY LEAF",R.drawable);
 //		resources.put("CUSH CUSH",R.drawable);
  		resources.put("DASHEEN",R.drawable.dasheen);
-//		resources.put("DASHEEN BUSH",R.drawable);
+		resources.put("DASHEEN BUSH",R.drawable.dasheen_bush);
 //		resources.put("DILL",R.drawable);
 		resources.put("EDDOES",R.drawable.eddoe);
-// 		resources.put("EGGPLANT",R.drawable);
-//		resources.put("ESCALLION",R.drawable);
+ 		resources.put("EGGPLANT",R.drawable.eggplant);
+		resources.put("ESCALLION",R.drawable.escallion);
 //		resources.put("FENNEL",R.drawable);
 		resources.put("GINGER",R.drawable.ginger);
 // 		resources.put("GOLDEN APPLE",R.drawable);
 		resources.put("GRAPEFRUIT",R.drawable.grapefruit);
-//		resources.put("GREEN FIG",R.drawable);
+		resources.put("GREEN FIG",R.drawable.banana);
 //		resources.put("HORSERADISH",R.drawable);
  		resources.put("HOT PEPPER",R.drawable.hot_pepper);
 //		resources.put("JACK BEAN",R.drawable);
@@ -136,11 +133,11 @@ public class CropDataHelper {
 
 		resources.put("LETTUCE",R.drawable.lettuce);
 		resources.put("LIME",R.drawable.lime);
-// 		resources.put("MAIZE (CORN)",R.drawable);
-//		resources.put("MANGO",R.drawable);
+ 		resources.put("MAIZE (CORN)",R.drawable.corn);
+		resources.put("MANGO",R.drawable.mango);
 //		resources.put("MARJORAM",R.drawable);
-//		resources.put("MINT",R.drawable);
-// 		resources.put("NUTMEG",R.drawable);
+		resources.put("MINT",R.drawable.mint);
+ 		resources.put("NUTMEG",R.drawable.nutmeg);
 		resources.put("OCHRO",R.drawable.ochro);
 //		resources.put("ONIONS",R.drawable);
 		resources.put("ORANGES",R.drawable.orange);
@@ -148,15 +145,15 @@ public class CropDataHelper {
 //		resources.put("PAKCHOY",R.drawable);
 //		resources.put("PARSLEY",R.drawable);
 		resources.put("PAW PAW",R.drawable.paw_paw);
-// 		resources.put("PEANUTS",R.drawable);
+ 		resources.put("PEANUTS",R.drawable.peanuts);
 		resources.put("PIGEON PEAS",R.drawable.pigeon_pea);
 		resources.put("PIMENTO PEPPER",R.drawable.pimento);
-//		resources.put("PINEAPPLE",R.drawable);
+		resources.put("PINEAPPLE",R.drawable.pineapple);
  		resources.put("PLANTAIN",R.drawable.plantain);
 		resources.put("PORTUGAL",R.drawable.portugal);
 		resources.put("PUMPKIN",R.drawable.pumpkin);
 //		resources.put("RADISH (MOORAI)",R.drawable);
-//		resources.put("RICE",R.drawable);
+		resources.put("RICE",R.drawable.rice);
 //		resources.put("ROSEMARY",R.drawable);
 //		resources.put("SAIJAN",R.drawable);
 //		resources.put("SATPUTIYA (LOOFAH)",R.drawable);
@@ -175,9 +172,9 @@ public class CropDataHelper {
 		resources.put("THYME - FRENCH",R.drawable.thyme);
 		resources.put("THYME - SPANISH",R.drawable.thyme);
 		resources.put("TOMATO",R.drawable.tomato);
-//		resources.put("TUMERIC (SAFFRON)",R.drawable);
-//		resources.put("VINE SPINACH (POI BHAGI)",R.drawable);
-//		resources.put("WATERCRESS",R.drawable);
+		resources.put("TUMERIC (SAFFRON)",R.drawable.turmeric);
+		resources.put("VINE SPINACH (POI BHAGI)",R.drawable.spinach);
+		resources.put("WATERCRESS",R.drawable.watercress);
 		resources.put("WATERMELON",R.drawable.watermelon);
 //		resources.put("WING BEAN",R.drawable);
  		resources.put("YAM",R.drawable.yam);
@@ -186,6 +183,6 @@ public class CropDataHelper {
 	public Integer getResourceId(String key){
 		if(resources.containsKey(key))
 			return resources.get(key);
-		return R.drawable.crop_under_rain_solid;
+		return R.drawable.plant;
 	}
 }

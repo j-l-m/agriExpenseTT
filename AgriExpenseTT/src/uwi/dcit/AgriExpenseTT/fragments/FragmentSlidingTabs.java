@@ -45,6 +45,7 @@ public abstract class FragmentSlidingTabs extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_manage_resources, container, false);
+
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager_manage_resources);
         adapter = new ResourcePageAdapter(getChildFragmentManager());
         mViewPager.setAdapter(adapter);

@@ -8,9 +8,6 @@ import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.View.OnTouchListener;
 import android.widget.TextView;
 
 import uwi.dcit.AgriExpenseTT.fragments.NewPurchaseLists;
@@ -23,8 +20,7 @@ public class NewPurchase extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_new_cycle);
-		setupUI();
+		setContentView(R.layout.activity_new_resource);
         //Google Analytics
         GAnalyticsHelper.getInstance(this.getApplicationContext()).sendScreenView("New Purchase");
 	}
@@ -48,29 +44,16 @@ public class NewPurchase extends BaseActivity {
 			.commit();
 	}
 
-	public void setupUI() {
-		View v=findViewById(R.id.container_newcycle);
-		TouchL l=new TouchL();
-		v.setOnTouchListener(l);
-	}
-	
-	public class TouchL implements OnTouchListener{
-		@Override
-		public boolean onTouch(View v, MotionEvent event) {
-//			if(v.getId()!=R.id.et_listReuse_search)
-//				hideSoftKeyboard();
-			return false;
-		}
-	   
-   }
-
 	public void replaceSub(String text){
 		sub_head=(TextView)findViewById(R.id.tv_mainNew_subheader);
 		sub_head.setText(text);
 	}
+
+    /**
+     * Custom Menu operations for purchases. This will provide a prompt based on the categories of purchases
+     */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.new_purchase, menu);
 		return true;
 	}

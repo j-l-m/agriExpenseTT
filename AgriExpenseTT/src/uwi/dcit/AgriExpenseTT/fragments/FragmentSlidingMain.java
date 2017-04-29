@@ -14,6 +14,7 @@ import uwi.dcit.AgriExpenseTT.helpers.DbQuery;
 
 public class FragmentSlidingMain extends FragmentSlidingTabs {
 
+    private static final String TAG = "FragmentSliding";
     private String focus;
 
     public void populateList(){
@@ -24,6 +25,7 @@ public class FragmentSlidingMain extends FragmentSlidingTabs {
         arguments = getArguments();
         if (arguments.containsKey("type")) {
             focus = arguments.getString("type");
+            Log.d(TAG, "Received key: " + focus);
         }
 
 
@@ -35,6 +37,7 @@ public class FragmentSlidingMain extends FragmentSlidingTabs {
             cycleFrag = new FragmentViewCycles();
         }else{
             cycleFrag = new FragmentEmpty();
+            arguments = new Bundle();
             arguments.putString("type", "cycle");
             cycleFrag.setArguments(arguments);
         }
@@ -44,6 +47,7 @@ public class FragmentSlidingMain extends FragmentSlidingTabs {
             resFrag = new FragmentChoosePurchase();
         }else{
             resFrag = new FragmentEmpty();
+            arguments = new Bundle();
             arguments.putString("type", "purchase");
             resFrag.setArguments(arguments);
         }

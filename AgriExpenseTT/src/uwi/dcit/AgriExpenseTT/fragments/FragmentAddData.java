@@ -61,8 +61,7 @@ public class FragmentAddData extends ListFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		view = inflater.inflate(R.layout.list_reuse, container, false); //returns the inflated layout which contains the listview
 		tv_main=(TextView)view.findViewById(R.id.tv_frag_mainHead_new);
-        view.findViewById(R.id.et_listReuse_search).setVisibility(View.INVISIBLE); // Remove the search bar not necessary
-        tv_main.setText("Choose category of resource to be added");
+        tv_main.setText(R.string.select_resource_cat_add);
 		return view;
 	}
 
@@ -85,28 +84,4 @@ public class FragmentAddData extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         startAddData(list.get(position));
     }
-	 
-	 public class TWatch implements TextWatcher{
-		 ArrayAdapter<String> adapter;
-		 public TWatch(ArrayAdapter<String> adapter){
-			 super();
-			 this.adapter = adapter;
-		 }
-		@Override
-		public void beforeTextChanged(CharSequence s, int start, int count,int after) {
-			
-		}
-
-		@Override
-		public void onTextChanged(CharSequence s, int start, int before,int count) {
-			adapter.getFilter().filter(s);
-			
-		}
-
-		@Override
-		public void afterTextChanged(Editable s) {
-			
-		}
-		 
-	 }
 }

@@ -14,7 +14,7 @@ public class AddData extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_new_cycle);
+        setContentView(R.layout.activity_new_resource);
         Fragment fragment = new FragmentAddData();
         // Pass any incoming configuration options to the fragment
         if (getIntent().getExtras() != null)

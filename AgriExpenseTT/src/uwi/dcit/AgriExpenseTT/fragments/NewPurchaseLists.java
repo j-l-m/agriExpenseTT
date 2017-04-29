@@ -102,15 +102,8 @@ public class NewPurchaseLists extends ListFragment {
 		//returns the inflated layout which contains the listview
 		View view= inflater.inflate(R.layout.list_reuse, container, false);
 		TextView et_main=(TextView)view.findViewById(R.id.tv_frag_mainHead_new);
-		TextView et_search=(TextView)view.findViewById(R.id.et_listReuse_search);
-		et_search.setVisibility(View.INVISIBLE); //TODO Remove the search bar until more reliable performance is achieved
 
-		if(getArguments().getString("type").equals("category")||getArguments().getString("type").equals("quantifier")){
-			et_search.setVisibility(View.GONE);
-		}else{
-			TWatch tw=new TWatch(listAdapt);
-			et_search.addTextChangedListener(tw);
-		}
+
 		if(type.equals("category")) et_main.setText("Select the type of material you are buying");
         else if(type.equals("resource")){
 			String s=getArguments().getString("category");
@@ -194,33 +187,4 @@ public class NewPurchaseLists extends ListFragment {
         // Commit the transaction
         transaction.commit();
     }
-	 
-	 public class TWatch implements TextWatcher{
-		 ArrayAdapter<String> adpt;
-		 public TWatch(ArrayAdapter<String> adpt){
-			 super();
-			 this.adpt=adpt;
-		 }
-		@Override
-		public void beforeTextChanged(CharSequence s, int start, int count,
-				int after) {
-			
-			
-		}
-
-		@Override
-		public void onTextChanged(CharSequence s, int start, int before,
-				int count) {
-			adpt.getFilter().filter(s);
-			
-			
-		}
-
-		@Override
-		public void afterTextChanged(Editable s) {
-			
-			
-		}
-		 
-	 }
 }

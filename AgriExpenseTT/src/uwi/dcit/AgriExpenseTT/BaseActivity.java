@@ -134,8 +134,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
                 getString(R.string.menu_item_newPurchase),
                 getString(R.string.menu_item_hireLabour),
                 getString(R.string.menu_item_genFile),
-                getString(R.string.menu_item_manageData),
-                getString(R.string.menu_item_signIn)
+                getString(R.string.menu_item_manageData)
         };
     }
 
@@ -147,8 +146,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
                 R.drawable.mainmenu_shopping_cart,
                 R.drawable.mainmenu_shovel_single,
                 R.drawable.mainmenu_reports,
-                R.drawable.mainmenu_data_settings,
-                R.drawable.mainmenu_signin
+                R.drawable.mainmenu_data_settings
         };
     }
 
