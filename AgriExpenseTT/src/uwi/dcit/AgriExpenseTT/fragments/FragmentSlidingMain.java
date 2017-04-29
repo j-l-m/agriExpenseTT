@@ -47,7 +47,7 @@ public class FragmentSlidingMain extends FragmentSlidingTabs {
             arguments.putString("type", "purchase");
             resFrag.setArguments(arguments);
         }
-
+//        Log.i("b cycles and g purchase",null);
         fragments.add(new FragItem(cycleFrag, Color.BLUE,"Cycles"));
         fragments.add(new FragItem(resFrag,Color.GREEN,"Purchases"));
 
