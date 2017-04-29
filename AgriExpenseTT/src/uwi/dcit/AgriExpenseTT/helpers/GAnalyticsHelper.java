@@ -18,7 +18,7 @@ public class GAnalyticsHelper {
     private static final String PERFORMANCE_CATEGORY = "Performance_Metrics";
 
     private static final String TAG = "GAnalytics";
-    private static final boolean enableTracking = false;
+    private static final boolean enableTracking = true;
     private static GAnalyticsHelper instance = null;
     private final String userEmail;
     private Tracker tracker;

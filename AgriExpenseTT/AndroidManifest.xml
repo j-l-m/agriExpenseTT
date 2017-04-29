@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
           package="uwi.dcit.AgriExpenseTT"
-          android:versionCode="17"
-          android:versionName="6.10">
+          android:versionCode="20"
+          android:versionName="6.25">
 
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.INTERNET" />
