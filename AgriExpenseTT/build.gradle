@@ -1,31 +1,33 @@
 apply plugin: 'com.android.application'
 repositories {
     mavenCentral();
+    google()
 }
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
     compile project(path: ':AgriExpenseBackend', configuration: 'android-endpoints')
-    compile 'com.android.support:appcompat-v7:25.0.1'
-    compile 'com.google.android.gms:play-services-auth:10.0.1'
-    compile 'com.google.android.gms:play-services-analytics:10.0.1'
-    compile 'com.google.android.gms:play-services-location:10.0.1'
+    compile 'com.android.support:appcompat-v7:27.0.0'
+    implementation 'com.android.support:support-v4:27.0.0'
+    compile 'com.google.android.gms:play-services-auth:11.4.2'
+    compile 'com.google.android.gms:play-services-analytics:11.4.2'
+    compile 'com.google.android.gms:play-services-location:11.4.2'
     // Google Cloud Messaging
-    compile "com.google.android.gms:play-services-gcm:10.0.1"
-    compile 'com.android.support:multidex:1.0.1'
+    compile "com.google.android.gms:play-services-gcm:11.4.2"
+    compile 'com.android.support:multidex:1.0.2'
     compile 'org.apache.commons:commons-lang3:3.3.2'
-    compile 'com.android.support:support-v4:25.0.1'
-    compile 'com.android.support:design:25.0.1'
+    compile 'com.android.support:support-v4:27.0.0'
+    compile 'com.android.support:design:27.0.0'
     compile 'com.nineoldandroids:library:2.4.0'
 }
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "25.0.1"
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 24
+        minSdkVersion 17
+        targetSdkVersion 26
         multiDexEnabled true
         applicationId "uwi.dcit.AgriExpenseTT"
     }
