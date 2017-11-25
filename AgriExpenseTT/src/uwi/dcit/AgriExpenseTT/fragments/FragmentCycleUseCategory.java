@@ -68,7 +68,7 @@ public class FragmentCycleUseCategory extends Fragment {
 		}
 
 
-//        GAnalyticsHelper.getInstance(this.getActivity()).sendScreenView("Cycle Use Category Fragment");
+//        GAnalyticsHelper.getInstance(this.getActivity()).sendScreenView("Cycle Use CategoryList Fragment");
 		return view;
 	}
 

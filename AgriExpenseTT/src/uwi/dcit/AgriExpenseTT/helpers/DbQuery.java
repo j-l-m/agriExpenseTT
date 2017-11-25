@@ -173,6 +173,7 @@ public class DbQuery {
 			code="select name from "+ ResourceContract.ResourceEntry.TABLE_NAME+" where "+ ResourceContract.ResourceEntry.RESOURCES_TYPE+"='"+type+"';";
 		else
 			code="select name from "+ ResourceContract.ResourceEntry.TABLE_NAME;
+		Log.d("QUERY:::::", ""+code);
 		Cursor cursor=db.rawQuery(code, null);
 		if(cursor.getCount()<1)
 			return list;

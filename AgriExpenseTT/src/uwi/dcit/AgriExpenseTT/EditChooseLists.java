@@ -20,6 +20,8 @@ import uwi.dcit.AgriExpenseTT.helpers.DHelper;
 import uwi.dcit.AgriExpenseTT.helpers.DbHelper;
 import uwi.dcit.AgriExpenseTT.helpers.DbQuery;
 import uwi.dcit.AgriExpenseTT.helpers.GAnalyticsHelper;
+import uwi.dcit.AgriExpenseTT.newmodels.ListFactory;
+import uwi.dcit.AgriExpenseTT.newmodels.ListGenerator;
 
 public class EditChooseLists extends BaseActivity {
 	ArrayList<String> list;
@@ -48,7 +50,7 @@ public class EditChooseLists extends BaseActivity {
         // Google Analytics
         GAnalyticsHelper.getInstance(this.getApplicationContext()).sendScreenView("Edit Choose Lists Screen");
 	}
-
+/*
 	private void populateList() {
 		if(content.equals(DHelper.cat_plantingMaterial)
 				||content.equals(DHelper.cat_fertilizer)
@@ -93,7 +95,20 @@ public class EditChooseLists extends BaseActivity {
 
         Collections.sort(list);
 	}
+//*/
 
+///*
+	private void populateList() {
+		String category = content;
+		ListGenerator listgen = ListFactory.getListGenerator(
+											getApplicationContext(),
+											content,
+											category);
+		list = listgen.generateList();
+
+		Collections.sort(list);
+	}
+//*/
 	private void initialize() {
 		dbh=new DbHelper(EditChooseLists.this);
 //		db=dbh.getReadableDatabase();

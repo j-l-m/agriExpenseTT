@@ -1,5 +1,6 @@
 package uwi.dcit.AgriExpenseTT.fragments;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -24,6 +26,8 @@ import uwi.dcit.AgriExpenseTT.R;
 import uwi.dcit.AgriExpenseTT.helpers.DHelper;
 import uwi.dcit.AgriExpenseTT.helpers.DbHelper;
 import uwi.dcit.AgriExpenseTT.helpers.DbQuery;
+import uwi.dcit.AgriExpenseTT.newmodels.ListFactory;
+import uwi.dcit.AgriExpenseTT.newmodels.ListGenerator;
 
 
 public class NewPurchaseLists extends ListFragment {
@@ -34,6 +38,8 @@ public class NewPurchaseLists extends ListFragment {
 	DbHelper dbh;
 	int cycleId;
 	ArrayAdapter<String> listAdapt;
+
+	Context context;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -41,10 +47,13 @@ public class NewPurchaseLists extends ListFragment {
 		dbh=new DbHelper(this.getActivity().getBaseContext());
 		db=dbh.getWritableDatabase();
 		type=getArguments().getString("type");
+
+        context = this.getActivity().getBaseContext();
 		populateList();
 		Collections.sort(list);
 		listAdapt = new ArrayAdapter<>(this.getActivity().getBaseContext(),android.R.layout.simple_list_item_1,list);
 		setListAdapter(listAdapt);
+
 //        GAnalyticsHelper.getInstance(this.getActivity()).sendScreenView("New Purchase List Fragment");
 	}
 
@@ -57,7 +66,8 @@ public class NewPurchaseLists extends ListFragment {
             listAdapt.notifyDataSetChanged();
         }
     }
-		
+
+/*
 	private void populateList() {
 		list = new ArrayList<>();
 		
@@ -96,6 +106,26 @@ public class NewPurchaseLists extends ListFragment {
 				
 		}
 	}
+
+*/
+	private void populateList() {
+        Log.d(TAG, type);
+        if (getArguments().getString("category") == null)
+            Log.d(TAG, "NULLLLL");
+        else Log.d("ARGUMENTS", type+" | "+ getArguments().getString("category"));
+        if (context == null) Log.d("CONTEXT", "IS NULL");
+        else Log.d("CONTEXT", ""+context.toString());
+        list = new ArrayList<>();
+        if(context == null) Log.d(TAG, "populateList: ITS NULL");
+        ListGenerator listgen = ListFactory.getListGenerator(
+				context,
+				type,
+				getArguments().getString("category")
+		);
+		list = listgen.generateList();
+        Log.d(TAG, list.size() +"");
+    }
+  //*/
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {

@@ -62,7 +62,7 @@ public class FragmentOtherResourceList  extends ListFragment{
 		TWatch tw=new TWatch(listAdapt);
 		et_search.addTextChangedListener(tw);
 		setupButton(view);
-        GAnalyticsHelper.getInstance(this.getActivity()).sendScreenView("New Resource List Fragment - Other Category");
+        GAnalyticsHelper.getInstance(this.getActivity()).sendScreenView("New Resource List Fragment - Other CategoryList");
 
         view.setOnTouchListener(
                 new View.OnTouchListener() {

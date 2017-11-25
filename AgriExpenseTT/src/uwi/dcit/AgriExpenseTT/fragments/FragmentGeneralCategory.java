@@ -47,7 +47,7 @@ public class FragmentGeneralCategory extends Fragment {
 
 		calcTotals();
 		setup();
-//        GAnalyticsHelper.getInstance(this.getActivity()).sendScreenView("General Category Fragment");
+//        GAnalyticsHelper.getInstance(this.getActivity()).sendScreenView("General CategoryList Fragment");
 		return view;
 	}
 	
