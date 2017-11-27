@@ -3,14 +3,14 @@ package uwi.dcit.AgriExpenseTT.newmodels;
 import java.util.ArrayList;
 
 /**
- * Created by Jason on 11/23/2017.
+ * Land Units List
  */
 
 public class LandUnitList extends ListGenerator {
 
-    private static final String acre = "acre";
-    private static final String hectare = "hectare";
-    private static final String bed = "bed";
+    private final String acre = "acre";
+    private final String hectare = "hectare";
+    private final String bed = "bed";
 
     private ArrayList<String> list;
 

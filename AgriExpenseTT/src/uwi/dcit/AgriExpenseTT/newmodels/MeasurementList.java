@@ -3,18 +3,18 @@ package uwi.dcit.AgriExpenseTT.newmodels;
 import java.util.ArrayList;
 
 /**
- * Created by Jason on 11/23/2017.
+ * ListGenerator for list of measurement units
  */
 
 public class MeasurementList extends ListGenerator {
 
-    private static final String lb = "Lb";
-    private static final String kg = "Kg";
-    private static final String bag = "Bag";
-    private static final String bundle = "Bundle";
-    private static final String head = "Head";
-    private static final String hundred = "100's";
-    private static final String bundle_5lb = "5lb Bundle";
+    private final String lb = "Lb";
+    private final String kg = "Kg";
+    private final String bag = "Bag";
+    private final String bundle = "Bundle";
+    private final String head = "Head";
+    private final String hundred = "100's";
+    private final String bundle_5lb = "5lb Bundle";
 
     private ArrayList<String> list;
 

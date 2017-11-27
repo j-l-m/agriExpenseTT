@@ -10,11 +10,11 @@ import uwi.dcit.AgriExpenseTT.helpers.DHelper;
 
 public class ChemicalQuantifierList extends ListGenerator {
 
-    private static final String ml = DHelper.qtf_chemical_ml;
-    private static final String L = DHelper.qtf_chemical_L;
-    private static final String oz = DHelper.qtf_chemical_oz;
-    private static final String g = DHelper.qtf_chemical_g;
-    private static final String kg = DHelper.qtf_chemical_kg;
+    private final String ml = DHelper.qtf_chemical_ml;
+    private final String L = DHelper.qtf_chemical_L;
+    private final String oz = DHelper.qtf_chemical_oz;
+    private final String g = DHelper.qtf_chemical_g;
+    private final String kg = DHelper.qtf_chemical_kg;
 
     private ArrayList<String> list;
 

@@ -108,22 +108,15 @@ public class NewPurchaseLists extends ListFragment {
 	}
 
 */
+//************************************* Redesign implementation*************************************
 	private void populateList() {
-        Log.d(TAG, type);
-        if (getArguments().getString("category") == null)
-            Log.d(TAG, "NULLLLL");
-        else Log.d("ARGUMENTS", type+" | "+ getArguments().getString("category"));
-        if (context == null) Log.d("CONTEXT", "IS NULL");
-        else Log.d("CONTEXT", ""+context.toString());
         list = new ArrayList<>();
-        if(context == null) Log.d(TAG, "populateList: ITS NULL");
         ListGenerator listgen = ListFactory.getListGenerator(
 				context,
 				type,
 				getArguments().getString("category")
 		);
 		list = listgen.generateList();
-        Log.d(TAG, list.size() +"");
     }
   //*/
 

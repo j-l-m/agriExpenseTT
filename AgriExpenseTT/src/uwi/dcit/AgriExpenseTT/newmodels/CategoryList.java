@@ -6,18 +6,18 @@ import java.util.HashMap;
 import uwi.dcit.AgriExpenseTT.helpers.DHelper;
 
 /**
- * Created by Jason on 11/22/2017.
+ * Category List class.
  */
 
 public class CategoryList extends ListGenerator {
 
 
-    public static final String plantMaterial = DHelper.cat_plantingMaterial;
-    public static final String chemical = DHelper.cat_chemical;
-    public static final String fertilizer = DHelper.cat_fertilizer;
-    public static final String soilAmendment = DHelper.cat_soilAmendment;
-    public static final String labour = DHelper.cat_labour;
-    public static final String other = DHelper.cat_other;
+    private final String plantMaterial = DHelper.cat_plantingMaterial;
+    private final String chemical = DHelper.cat_chemical;
+    private final String fertilizer = DHelper.cat_fertilizer;
+    private final String soilAmendment = DHelper.cat_soilAmendment;
+    private final String labour = DHelper.cat_labour;
+    private final String other = DHelper.cat_other;
 
 
 
@@ -30,13 +30,12 @@ public class CategoryList extends ListGenerator {
         list.add(chemical);
         list.add(fertilizer);
         list.add(soilAmendment);
-       // list.add(labour);
         list.add(other);
         return list;
     }
 
 
-    private static HashMap<String, String> genMap(){
+    private HashMap<String, String> genMap(){
         HashMap<String, String> hashMap = new HashMap<String, String>();
         hashMap.put(plantMaterial, plantMaterial);
         hashMap.put(chemical, chemical);
@@ -48,12 +47,8 @@ public class CategoryList extends ListGenerator {
         return hashMap;
     }
 
-    public static boolean isCategory(String category){
-        HashMap<String, String> hashMap = genMap();
-        return (hashMap.get(category) != null);
-    }
 
-    public static HashMap<String, String> getCategoryMap(){
+    public HashMap<String, String> getCategoryMap(){
         return genMap();
     }
 }

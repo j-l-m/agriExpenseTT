@@ -1,56 +1,55 @@
 package uwi.dcit.AgriExpenseTT.newmodels;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import java.util.HashMap;
 
-import uwi.dcit.AgriExpenseTT.helpers.DbHelper;
+import uwi.dcit.AgriExpenseTT.helpers.DHelper;
+
 
 /**
- * Created by Jason on 11/22/2017.
+ * List Factory class.
+ * Returns an instance of a specific ListGenerator type based on the parameters provided
  */
 
 public class ListFactory {
 
-    //Context context;
-    //DbHelper dbhelper;
-    //SQLiteDatabase sqldb;
-
     /*
     The factory method
+    @param context is the context of the current activity. This is needed by ListGenerators that use database queries
+    @param listType is the type of list be requested.
+    @param subType is the secondary type of list specified by listType. e.g. a list of planting material resources is requested
+        The listType would be 'resources' and the subType would be 'planting material'
     */
 
-    public static ListGenerator getListGenerator(Context context, String content, String category){
+    public static ListGenerator getListGenerator(Context context, String listType, String subType){
 
-        //DbHelper dbh = new DbHelper(context);
-        //SQLiteDatabase db = dbh.getWritableDatabase();
-        Log.d("FACTORY",  content + " | " + category);
+        Log.d("FACTORY",  listType + " | " + subType);
+        if (subType == null) subType = listType;
 
-        if (content.equals("category")){
+        if (listType.equals("category")){
             return new CategoryList();
         }
 
-        if (content.equals("measurement")){
+        if (listType.equals("measurement")){
             return new MeasurementList();
         }
 
-        if (content.equals("land")){
+        if (listType.equals("land")){
             return new LandUnitList();
         }
 
-        if (content.equals("quantifier")){
-            return quantifierList(category);
+        if (listType.equals("quantifier")){
+            return quantifierList(subType);
         }
 
-        if (content.equals("resource")){
-            //return new ResourceList(db, dbh, content);
-            return new ResourceList(context, category);
+        if (listType.equals("resource")){
+            return new ResourceList(context, subType);
         }
 
-        if (CategoryList.isCategory(content)){
-            //return new ResourceList(db, dbh, content);
-            return new ResourceList(context, category);
+        if (isCategory(listType)){
+            return new ResourceList(context, subType);
         }
 
         return null;
@@ -58,28 +57,38 @@ public class ListFactory {
 
 
     /*
-        The quantifier used depends on the category passed in the bundle
+        The quantifier used depends on the category of the resource
     */
     private static ListGenerator quantifierList(String category){
+
         Log.d("FACTORY", "quantifierList: "+category);
-        if (category.equals(CategoryList.plantMaterial)){
+        if (category.equals(DHelper.cat_plantingMaterial)){
             return new PlantQuantifierList();
         }
 
-        if (category.equals(CategoryList.fertilizer)){
+        if (category.equals(DHelper.cat_fertilizer)){
             return new FertilizerQuantifierList();
         }
 
-        if (category.equals(CategoryList.soilAmendment)){
+        if (category.equals(DHelper.cat_soilAmendment)){
             return new SoilAmmendList();
         }
 
-        if (category.equals(CategoryList.chemical)){
+        if (category.equals(DHelper.cat_chemical)){
             return new ChemicalQuantifierList();
         }
 
-
         return null;
+    }
+
+
+    /*
+        isCategory() method determines if a String is a category
+     */
+    private static boolean isCategory(String category){
+        CategoryList categoryList = new CategoryList();
+        HashMap<String, String> hashMap = categoryList.getCategoryMap();
+        return (hashMap.get(category) != null);
     }
 
 }

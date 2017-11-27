@@ -98,8 +98,9 @@ public class EditChooseLists extends BaseActivity {
 //*/
 
 ///*
+//************************************* Redesign implementation*************************************
 	private void populateList() {
-		String category = content;
+		String category = getIntent().getExtras().getString("category");
 		ListGenerator listgen = ListFactory.getListGenerator(
 											getApplicationContext(),
 											content,

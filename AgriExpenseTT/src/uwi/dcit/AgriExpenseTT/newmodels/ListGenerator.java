@@ -3,7 +3,7 @@ package uwi.dcit.AgriExpenseTT.newmodels;
 import java.util.ArrayList;
 
 /**
- * Created by Jason on 11/22/2017.
+ * This class is extended by all list generating classes
  */
 
 public abstract class ListGenerator {

@@ -10,22 +10,14 @@ import uwi.dcit.AgriExpenseTT.helpers.DbHelper;
 import uwi.dcit.AgriExpenseTT.helpers.DbQuery;
 
 /**
- * Created by Jason on 11/23/2017.
+ * Resource List
  */
 
 public class ResourceList extends ListGenerator {
 
     private String category;
     private ArrayList<String> list;
-    //private SQLiteDatabase db;
-    //private DbHelper dbh;
     private Context context;
-
-   /* public ResourceList(SQLiteDatabase db, DbHelper dbh, String category){
-        this.category = category;
-        this.db = db;
-        this.dbh = dbh;
-    } */
 
 
    public ResourceList(Context context, String category){
@@ -44,6 +36,5 @@ public class ResourceList extends ListGenerator {
         list =  (ArrayList<String>) DbQuery.getResources(db, dbh, this.category, list);
         Log.d("RESOURCELIST", "size: "+ list.size());
         return list;
-        //return (ArrayList<String>) DbQuery.getResources(db, dbh, category, list);
     }
 }
