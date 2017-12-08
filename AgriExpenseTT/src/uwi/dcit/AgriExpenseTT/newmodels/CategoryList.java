@@ -34,7 +34,12 @@ public class CategoryList extends ListGenerator {
         return list;
     }
 
+/*
+    Additional functions
 
+   genMap() builds a hashMap of quantifier categories
+   getCategory() map is used by the ListFactory to check if a string is a category
+ */
     private HashMap<String, String> genMap(){
         HashMap<String, String> hashMap = new HashMap<String, String>();
         hashMap.put(plantMaterial, plantMaterial);
